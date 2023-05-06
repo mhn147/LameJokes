@@ -17,13 +17,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var emptyJokes = _db.Jokes.Where(j => string.IsNullOrEmpty(j.Content)).ToList();
-        _db.Jokes.RemoveRange(emptyJokes);
-        _db.SaveChanges();
-
-
-        var jokes = _db.Jokes.ToList();
-
+        var jokes = _db.Jokes?.ToList();
         return View(jokes);
     }
 

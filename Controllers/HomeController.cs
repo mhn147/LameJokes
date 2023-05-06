@@ -21,6 +21,7 @@ public class HomeController : Controller
         _db.Jokes.RemoveRange(emptyJokes);
         _db.SaveChanges();
 
+
         var jokes = _db.Jokes.ToList();
 
         return View(jokes);

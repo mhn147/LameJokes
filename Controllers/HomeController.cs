@@ -18,6 +18,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         var jokes = _db.Jokes?.ToList();
+
         return View(jokes);
     }
 

@@ -1,0 +1,31 @@
+﻿@model List<Joke>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 class="mb-3">Welcome to Lame Jokes!</h1>
+<hr />
+<h2>Jokes List</h2>
+
+@if (Model.Any())
+{
+    <table class="table mb-3">
+        <thead>
+            <tr>
+                <th scope="col">Author</th>
+                <th scope="col">Joke</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var joke in Model)
+            {
+                <tr>
+                    <td>@joke.Author</td>
+                    <td>@joke.Content</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a class="btn btn-primary" asp-controller="Home" asp-action="Add">Add New</a>
